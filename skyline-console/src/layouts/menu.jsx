@@ -641,6 +641,29 @@ const renderMenu = (t) => {
         },
       ],
     },
+    {
+      path: '/billing',
+      name: t('Billing'),
+      key: 'billing',
+      icon: <ContainerOutlined />,
+      children: [
+        {
+          path: '/billing/invoice',
+          name: t('Invoices'),
+          key: 'invoice',
+          level: 1,
+          children: [
+            {
+              path: /^\/billing\/invoice\/detail\/.[^/]+$/,
+              name: t('Invoice Detail'),
+              key: 'invoiceDetail',
+              level: 2,
+              routePath: '/billing/invoice/detail/:id',
+            },
+          ],
+        },
+      ],
+    },
     // {
     //   path: '/management',
     //   name: t('Maintenance'),

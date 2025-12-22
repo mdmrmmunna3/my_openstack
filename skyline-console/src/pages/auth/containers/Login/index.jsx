@@ -1,16 +1,4 @@
-// Copyright 2021 99cloud
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+
 
 import React, { Component } from 'react';
 import { Input, Button, Select, Row, Col } from 'antd';
@@ -68,13 +56,13 @@ export class Login extends Component {
   }
 
   get productName() {
-    const { product_name = { zh: t('Cloud Platform'), en: 'Cloud Platform' } } =
+    const { product_name = { zh: t('Shadhin Cloud Platform'), en: 'Shadhin Cloud Platform' } } =
       this.info;
     const { getLocaleShortName } = i18n;
     const language = getLocaleShortName();
     const name =
-      product_name[language] || t('Cloud Platform') || 'Cloud Platform';
-    return t('Welcome, {name}', { name });
+      product_name[language] || t('Shadhin Cloud Platform') || 'Shadhin Cloud Platform';
+    return t('Welcome to {name}', { name });
   }
 
   get regions() {
