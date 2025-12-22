@@ -535,7 +535,7 @@
     name: publish-skyline-console-python-branch-tarball
     parent: publish-openstack-artifacts
     description: |
-            Publish the results tar.gz and whl packages to tarballs.openstack.org.
+      Publish the results tar.gz and whl packages to tarballs.openstack.org.
     pre-run: playbooks/python-tarball/pre.yaml
     run: playbooks/python-tarball/run.yaml
     post-run: playbooks/python-tarball/post.yaml
@@ -552,8 +552,7 @@
         - skyline-nodejs16-run-lint-test
         - skyline-nodejs16-run-unit-test
         - skyline-console-devstack-e2etests-compute:
-            irrelevant-files: &e2etests-compute-irrelevant-files
-              # network
+            irrelevant-files: &e2etests-compute-irrelevant-files # network
               - ^src/pages/network/.*$
               - ^src/stores/neutron/.*$
               - ^src/stores/octavia/.*$
@@ -612,8 +611,7 @@
               # dist
               - ^skyline_console/.*$
         - skyline-console-devstack-e2etests-network:
-            irrelevant-files: &e2etests-network-irrelevant-files
-              # compute
+            irrelevant-files: &e2etests-network-irrelevant-files # compute
               - ^src/pages/compute/.*$
               - ^src/stores/glance/.*$
               - ^src/stores/ironic/.*$
@@ -675,8 +673,7 @@
               # dist
               - ^skyline_console/.*$
         - skyline-console-devstack-e2etests-other:
-            irrelevant-files: &e2etests-other-irrelevant-files
-              # compute
+            irrelevant-files: &e2etests-other-irrelevant-files # compute
               - ^src/pages/compute/.*$
               - ^src/stores/glance/.*$
               - ^src/stores/ironic/.*$
@@ -713,8 +710,7 @@
               # dist
               - ^skyline_console/.*$
         - skyline-console-devstack-e2etests-storage:
-            irrelevant-files: &e2etests-storage-irrelevant-files
-              # compute
+            irrelevant-files: &e2etests-storage-irrelevant-files # compute
               - ^src/pages/compute/.*$
               - ^src/stores/glance/.*$
               - ^src/stores/ironic/.*$

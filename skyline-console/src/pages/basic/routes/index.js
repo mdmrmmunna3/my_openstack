@@ -35,6 +35,9 @@ const Configs = lazy(() =>
 const Management = lazy(() =>
   import(/* webpackChunkName: "management" */ 'pages/management/App')
 );
+const Billing = lazy(() =>
+  import(/* webpackChunkName: "billing" */ 'pages/billing/App')
+);
 const Heat = lazy(() =>
   import(/* webpackChunkName: "heat" */ 'pages/heat/App')
 );
@@ -93,6 +96,11 @@ export default [
       {
         path: `/management`,
         component: Management,
+      },
+      // billing route 
+      {
+        path: `/billing`,
+        component: Billing,
       },
       {
         path: `/heat`,

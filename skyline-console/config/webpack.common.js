@@ -23,9 +23,11 @@ const root = (path) => resolve(__dirname, `../${path}`);
 const version = moment().unix();
 
 // (jamesdenton) Remove once libs no longer hardcode the hashing algorithm
-const crypto = require("crypto");
+const crypto = require('crypto');
+
 const crypto_orig_createHash = crypto.createHash;
-crypto.createHash = algorithm => crypto_orig_createHash(algorithm == "md4" ? "md5" : algorithm);
+crypto.createHash = (algorithm) =>
+  crypto_orig_createHash(algorithm == 'md4' ? 'md5' : algorithm);
 
 module.exports = {
   module: {

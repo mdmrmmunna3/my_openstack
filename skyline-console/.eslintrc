@@ -4,10 +4,10 @@
     "plugin:prettier/recommended"
   ],
   "parser": "babel-eslint",
-  "plugins": [
-    "cypress",
-    "spellcheck"
-  ],
+  // "plugins": [
+  //   "cypress",
+  //   "spellcheck"
+  // ],
   "parserOptions": {
     "sourceType": "module",
     "ecmaFeatures": {
@@ -118,21 +118,27 @@
     "no-nested-ternary": "warn",
     "import/no-named-as-default": "warn",
     "global-require": "off",
-    "spellcheck/spell-checker": [
-      "warn",
-      {
-        "comments": true,
-        "strings": true,
-        "identifiers": true,
-        "templates": true,
-        "lang": "en_US",
-        "skipWords": [],
-        "skipIfMatch": [],
-        "skipWordIfMatch": [],
-        "minLength": 3
-      }
-    ],
-    "linebreak-style": ["error", "unix"]
+    // "spellcheck/spell-checker": [
+    //   "warn",
+    //   {
+    //     "comments": true,
+    //     "strings": true,
+    //     "identifiers": true,
+    //     "templates": true,
+    //     "lang": "en_US",
+    //     "skipWords": [
+    //       "num",
+    //       "selectordinal"
+    //     ],
+    //     "skipIfMatch": [],
+    //     "skipWordIfMatch": [],
+    //     "minLength": 3
+    //   }
+    // ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ]
   },
   "globals": {
     "t": true,

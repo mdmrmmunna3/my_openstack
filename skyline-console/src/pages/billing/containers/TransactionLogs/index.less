@@ -1,0 +1,199 @@
+.container {
+    padding: 20px;
+    background: #f5f7fb;
+    min-height: 100vh;
+}
+
+/* Header */
+.headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.header {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.refreshBtn {
+    padding: 8px 14px;
+    border-radius: 6px;
+    border: none;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+
+/* Top Section */
+.topSection {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+/* Chart */
+.chartBox {
+    background: white;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.chartTitle {
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.chartPlaceholder {
+    height: 230px;
+    border-radius: 8px;
+    background: repeating-linear-gradient(45deg,
+            #f0f2f5,
+            #f0f2f5 10px,
+            #e5e7eb 10px,
+            #e5e7eb 20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+}
+
+/* Summary */
+.summaryCard {
+    background: white;
+    border-radius: 10px;
+    padding: 16px;
+}
+
+.summaryLabel {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.amount {
+    font-size: 26px;
+    margin: 10px 0;
+}
+
+.growth {
+    font-size: 13px;
+    color: #16a34a;
+}
+
+/* Table */
+.tableWrapper {
+    background: white;
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+.tableHeader {
+    padding: 14px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tableActions button {
+    margin-left: 8px;
+    padding: 6px 10px;
+    font-size: 13px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th {
+    padding: 14px;
+    background: #f9fafb;
+    text-align: left;
+    font-size: 14px;
+}
+
+.table td {
+    padding: 14px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.emptyRow td {
+    text-align: center;
+    color: #9ca3af;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .topSection {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        font-size: 18px;
+    }
+
+    .tableHeader {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Filters */
+.filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.filters input,
+.filters select {
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+.applyBtn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 6px;
+    padding: 14px;
+    border-top: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+}
+
+.pagination button {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: 1px solid #e5e7eb;
+    background: white;
+    cursor: pointer;
+}
+
+.activePage {
+    background: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+.pagination select {
+    margin-left: 10px;
+    padding: 6px;
+}

@@ -27,6 +27,6 @@
           sed -i "s#passwordAdmin:.*#passwordAdmin: secretadmin#" $config_file
           make e2e
       args:
-        chdir: "{{ devstack_base_dir }}/skyline-console"
+        chdir: '{{ devstack_base_dir }}/skyline-console'
       become_user: stack
       become: yes

@@ -1,5 +1,3 @@
-
-
 import React, { Component } from 'react';
 import { Input, Button, Select, Row, Col } from 'antd';
 import { inject, observer } from 'mobx-react';
@@ -56,12 +54,18 @@ export class Login extends Component {
   }
 
   get productName() {
-    const { product_name = { zh: t('Shadhin Cloud Platform'), en: 'Shadhin Cloud Platform' } } =
-      this.info;
+    const {
+      product_name = {
+        zh: t('Shadhin Cloud Platform'),
+        en: 'Shadhin Cloud Platform',
+      },
+    } = this.info;
     const { getLocaleShortName } = i18n;
     const language = getLocaleShortName();
     const name =
-      product_name[language] || t('Shadhin Cloud Platform') || 'Shadhin Cloud Platform';
+      product_name[language] ||
+      t('Shadhin Cloud Platform') ||
+      'Shadhin Cloud Platform';
     return t('Welcome to {name}', { name });
   }
 

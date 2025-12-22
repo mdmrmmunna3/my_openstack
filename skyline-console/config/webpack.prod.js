@@ -55,6 +55,15 @@ module.exports = (env) => {
           exclude: /node_modules/,
           use: ['babel-loader'],
         },
+        // {
+        //   test: /\.jsx?$/,
+        //   include: [
+        //     resolve(__dirname, '../src'),
+        //     resolve(__dirname, '../node_modules/chart.js'),
+        //   ],
+        //   use: ['babel-loader'],
+        // },
+
         {
           test: /\.css$/,
           use: [

@@ -11,7 +11,9 @@
     "@babel/preset-react"
   ],
   "plugins": [
-    ["lodash"],
+    [
+      "lodash"
+    ],
     [
       "@babel/plugin-transform-runtime",
       {

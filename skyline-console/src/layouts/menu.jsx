@@ -648,19 +648,25 @@ const renderMenu = (t) => {
       icon: <ContainerOutlined />,
       children: [
         {
-          path: '/billing/invoice',
+          path: '/billing/invoices',
           name: t('Invoices'),
-          key: 'invoice',
+          key: 'billingInvoice',
           level: 1,
           children: [
             {
-              path: /^\/billing\/invoice\/detail\/.[^/]+$/,
-              name: t('Invoice Detail'),
-              key: 'invoiceDetail',
+              path: /^\/billing\/invoices\/detail\/.[^/]+$/,
+              name: t('Billing Detail'),
+              key: 'billingDetail',
               level: 2,
-              routePath: '/billing/invoice/detail/:id',
+              routePath: '/billing/invoices/detail/:id',
             },
           ],
+        },
+        {
+          path: '/billing/transaction_logs',
+          name: t('Transaction Logs'),
+          key: 'billingTransactionLogs',
+          level: 1,
         },
       ],
     },
