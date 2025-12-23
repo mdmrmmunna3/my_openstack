@@ -101,12 +101,25 @@ export class BaseLayout extends Component {
   }
 
   get menu() {
+    // অরিজিনাল মেনু নিন
     const menu = this.filterMenuByHidden(this.originMenu);
-    const newMenu = this.getMenuAllowed(menu);
+
+    // rootStore থেকে পেমেন্ট স্ট্যাটাস চেক করুন
+    const { paymentExpired } = this.rootStore;
+
+    let targetMenu = menu;
+
+    // যদি পেমেন্ট এক্সপায়ার হয়, তবে শুধু billing মেনু দেখাবে
+    if (paymentExpired) {
+      targetMenu = menu.filter((it) => it.key === 'billing');
+    }
+
+    const newMenu = this.getMenuAllowed(targetMenu);
     const filteredMenu = newMenu.filter((it) => {
       const { hasChildren = true, children } = it;
       return !hasChildren || (hasChildren && children.length);
     });
+
     return filteredMenu;
   }
 
@@ -228,6 +241,16 @@ export class BaseLayout extends Component {
   }
 
   init() {
+    const { paymentExpired } = this.rootStore;
+    const { pathname } = this.props.location;
+
+    // পেমেন্ট এক্সপায়ার থাকলে billing ছাড়া অন্য সব পাথে বাধা দিন
+    if (paymentExpired && !pathname.startsWith('/billing') && pathname !== '/login') {
+      window.location.href = '/billing/invoices';
+      return;
+    }
+
+    // আগের বাকি কোডগুলো এখানে থাকবে...
     if (this.isAdminPage && !this.hasAdminPageRole) {
       window.location.href = '/base/overview';
     }

@@ -63,7 +63,7 @@ const Invoice = () => {
   return (
     <div className={styles.invoicePage}>
       {/* Header */}
-      <Card bordered={false} className={styles.headerCard}>
+      <div bordered={false} className={styles.headerRow}>
         <div className={styles.headerLeft}>
           <h2>INVOICES</h2>
         </div>
@@ -77,7 +77,7 @@ const Invoice = () => {
             Export Invoice
           </Button>
         </div>
-      </Card>
+      </div>
 
       {/* Filter */}
       <Card bordered={false} className={styles.filterCard}>

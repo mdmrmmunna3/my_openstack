@@ -72,6 +72,9 @@ export class RootStore {
   enableBilling = false;
 
   @observable
+  paymentExpired = false;
+
+  @observable
   neutronExtensions = [];
 
   // @observable
