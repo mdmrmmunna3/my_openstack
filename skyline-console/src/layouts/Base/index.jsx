@@ -29,6 +29,8 @@ import renderUserMenu from '../user-menu';
 import RightContext from './Right';
 import LayoutMenu from './Menu';
 import styles from './index.less';
+import { message } from 'antd';
+
 
 const { Header } = Layout;
 
@@ -44,6 +46,7 @@ export class BaseLayout extends Component {
     super(props);
     this.state = {
       collapsed: getLocalStorageItem('menuCollapsed') || false,
+      showPaymentNotice: false,
     };
     this.init();
   }
@@ -246,9 +249,20 @@ export class BaseLayout extends Component {
 
     // পেমেন্ট এক্সপায়ার থাকলে billing ছাড়া অন্য সব পাথে বাধা দিন
     if (paymentExpired && !pathname.startsWith('/billing') && pathname !== '/login') {
-      window.location.href = '/billing/invoices';
+      window.location.href = '/billing/paybill';
       return;
     }
+
+    if (paymentExpired) {
+      message.error({
+        key: 'payment-expired',
+        content:
+          'Payment Required: Please pay your outstanding invoices to unlock all features.',
+        duration: 0,
+      });
+    }
+
+
 
     // আগের বাকি কোডগুলো এখানে থাকবে...
     if (this.isAdminPage && !this.hasAdminPageRole) {
