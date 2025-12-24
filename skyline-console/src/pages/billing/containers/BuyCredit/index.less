@@ -1,0 +1,328 @@
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 30px;
+    background: #fdfdfd;
+    height: calc(100vh - 90px); // ফিক্সড হাইট স্ক্রল সাপোর্ট করার জন্য
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    .leftPanel,
+    .rightPanel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .mainCard {
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        :global(.ant-card-body) {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+    }
+
+    .scrollContainer {
+        flex: 1;
+        overflow-y: auto;
+        padding-right: 8px;
+
+        &::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #1a3353;
+            border-radius: 10px;
+        }
+    }
+
+    .cardHeader {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 25px;
+
+        .headerBtns {
+            display: flex;
+            gap: 8px;
+
+            .customBtn {
+                background: #1a3353;
+                color: white;
+                border: none;
+            }
+
+            .buyBtnTop {
+                background: #eee;
+                border: none;
+                cursor: not-allowed;
+                color: #aaa;
+            }
+
+            .buyBtnActive {
+                background: #52c41a;
+                color: white;
+                border: none;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .creditTable {
+        border: 1px solid #e8e8e8;
+        border-radius: 4px;
+
+        .tableHead {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr;
+            background: #1a3353;
+            color: white;
+            padding: 12px;
+            font-weight: 600;
+        }
+
+        .tableRow {
+            display: grid;
+            grid-template-columns: 80px 1fr 1fr;
+            padding: 15px 12px;
+            border-bottom: 1px solid #f0f0f0;
+            cursor: pointer;
+
+            &:hover {
+                background: #f9f9f9;
+            }
+        }
+
+        .activeRow {
+            background: #f0f7ff !important;
+
+            .col {
+                font-weight: bold;
+                color: #1a3353;
+            }
+        }
+
+        .col {
+            text-align: center;
+        }
+    }
+
+    //   Right Panel Styles
+    .centerTitle {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .estimatorSection {
+        .label {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .storageGroup {
+            margin-bottom: 30px;
+
+            :global(.ant-radio-button-wrapper-checked) {
+                background: #eb5757 !important;
+                border-color: #eb5757 !important;
+                color: white;
+            }
+        }
+
+        .sliderBox {
+            margin-bottom: 35px;
+
+            .sliderLabel {
+                color: #888;
+                font-size: 13px;
+            }
+
+            .sliderVal {
+                margin: 0 !important;
+                color: #1a3353;
+                font-weight: 700;
+            }
+
+            :global(.ant-slider-handle) {
+                border-color: #eb5757;
+            }
+
+            :global(.ant-slider-track) {
+                background-color: #eb5757;
+            }
+        }
+
+        .resultBox {
+            background: #1a3353;
+            border-radius: 12px;
+            padding: 20px;
+            color: white;
+
+            .currencySwitch {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 8px;
+                font-size: 12px;
+            }
+
+            .resultContent {
+                text-align: center;
+
+                .resLabel {
+                    color: #ffffffa0;
+                    font-size: 14px;
+                }
+
+                .resPrice {
+                    color: #eb5757 !important;
+                    margin: 5px 0 !important;
+                    font-size: 38px;
+                }
+
+                .resPkg {
+                    color: #ffffffa0;
+                    font-size: 12px;
+                }
+
+                .resPkgName {
+                    color: #eb5757 !important;
+                    margin: 0 !important;
+                }
+
+                .resFooter {
+                    display: flex;
+                    justify-content: space-around;
+                    margin-top: 20px;
+                    border-top: 1px solid #ffffff20;
+                    padding-top: 15px;
+
+                    .dimText {
+                        color: #ffffffa0;
+                        font-size: 12px;
+                    }
+
+                    strong {
+                        font-size: 16px;
+                        color: #eb5757;
+                    }
+                }
+            }
+        }
+
+        .actionBtns {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+
+            .nextBtn {
+                background: #1a3353;
+                border: none;
+                width: 120px;
+                height: 40px;
+            }
+        }
+
+        .vatText {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 11px;
+        }
+    }
+}
+
+// modal css
+
+// মডাল স্টাইল (এটি গ্লোবাল বা নির্দিষ্ট ক্লাসে দিতে হয়)
+.customModal {
+    :global(.ant-modal-content) {
+        border-radius: 12px; // হালকা রেডিয়াস
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); // সুন্দর শ্যাডো
+    }
+
+    :global(.ant-modal-header) {
+        border-bottom: 1px solid #f0f0f0;
+        padding: 16px 24px;
+        background: #fafafa;
+    }
+
+    :global(.ant-modal-title) {
+        font-weight: 700;
+        color: #1a3353;
+    }
+
+    :global(.ant-modal-footer) {
+        border-top: none;
+        padding: 16px 24px 24px;
+
+        // OK Button (Add to list)
+        :global(.ant-btn-primary) {
+            background: #1a3353;
+            border-radius: 6px;
+            height: 38px;
+            font-weight: 600;
+            border: none;
+
+            &:hover {
+                background: #2c5282;
+            }
+        }
+
+        // Cancel Button
+        :global(.ant-btn-default) {
+            border-radius: 6px;
+            height: 38px;
+        }
+    }
+}
+
+.modalBody {
+    padding: 10px 0;
+
+    .modalLabel {
+        display: block;
+        margin-bottom: 12px;
+        color: #444;
+        font-size: 14px;
+    }
+
+    .modalInput {
+        width: 100%;
+        height: 45px;
+        border-radius: 8px;
+        border: 1px solid #d9d9d9;
+        padding: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #1a3353;
+        transition: all 0.3s;
+
+        &:hover,
+        &:focus {
+            border-color: #1a3353;
+            box-shadow: 0 0 0 2px rgba(26, 51, 83, 0.1);
+        }
+
+        :global(.ant-input-number-input) {
+            height: 43px;
+        }
+    }
+
+    .modalHint {
+        margin-top: 12px;
+        font-size: 12px;
+        color: #8c8c8c;
+        margin-bottom: 0;
+    }
+}
