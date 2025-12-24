@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 import { Button, Input, message, Typography, Space, Radio, Divider } from 'antd';
 import {
   DollarOutlined,
@@ -6,15 +7,23 @@ import {
   SafetyCertificateOutlined,
   CheckCircleFilled
 } from '@ant-design/icons';
+
 import styles from './index.less';
 
 const { Title, Text } = Typography;
 
 const PayBill = (props) => {
-  const { rootStore } = props;
+  const { rootStore, location } = props;
   const [amount, setAmount] = useState('');
   const [loading, setLoading] = useState(false);
   const [selectedMethod, setSelectedMethod] = useState('bKash'); // Default selection
+
+  useEffect(() => {
+    // props.location.state থেকে অ্যামাউন্ট চেক করা হচ্ছে
+    if (location.state && location.state.amount) {
+      setAmount(location.state.amount);
+    }
+  }, [location.state]);
 
   // পেমেন্ট মেথড লিস্ট
   const paymentMethods = [
@@ -129,4 +138,4 @@ const PayBill = (props) => {
   );
 };
 
-export default PayBill;
+export default withRouter(PayBill);

@@ -648,20 +648,27 @@ const renderMenu = (t) => {
       icon: <ContainerOutlined />,
       children: [
         {
-          path: '/billing/paybill',
-          name: t('Pay Bill'),
-          key: 'billingPayBill',
+          path: '/billing/buypackages',
+          name: t('Buy Packages'),
+          key: 'billingBuyPackages',
           level: 1,
-          children: [
-            {
-              path: /^\/billing\/paybill\/detail\/.[^/]+$/,
-              name: t('PayBill Detail'),
-              key: 'PayBillDetail',
-              level: 2,
-              routePath: '/billing/paybill/detail/:id',
-            },
-          ],
         },
+        // {
+        //   path: '/billing/paybill',
+        //   name: t('Pay Bill'),
+        //   key: 'billingPayBill',
+        //   level: 1,
+        //   children: [
+        //     {
+        //       path: /^\/billing\/paybill\/detail\/.[^/]+$/,
+        //       name: t('PayBill Detail'),
+        //       key: 'PayBillDetail',
+        //       level: 2,
+        //       routePath: '/billing/paybill/detail/:id',
+        //     },
+        //   ],
+        // },
+
         {
           path: '/billing/invoices',
           name: t('Invoices'),

@@ -1,0 +1,249 @@
+.container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #f4f7f9;
+    height: calc(100vh - 90px); // পুরো স্ক্রিন হাইট লক করা হয়েছে
+    overflow: hidden; // কন্টেইনারে স্ক্রল বন্ধ
+
+    .panelWrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+
+        &:first-child {
+            flex: 1.4;
+        }
+
+        // Left panel একটু বড়
+    }
+
+    .card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        display: flex;
+        flex-direction: column;
+        height: 100%; // কার্ড পুরো জায়গা নিবে
+        overflow: hidden;
+    }
+
+    .headerTitle {
+        font-size: 18px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 15px;
+        flex-shrink: 0; // টাইটেল ফিক্সড থাকবে
+    }
+
+    // স্ক্রল এরিয়া
+    .scrollArea {
+        flex: 1; // বাকি সব জায়গা নিবে
+        overflow-y: auto; // ভার্টিকাল স্ক্রল চালু
+        padding-right: 10px;
+
+        // কাস্টম স্ক্রলবার স্টাইল
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: #c1c1c1;
+            border-radius: 10px;
+
+            &:hover {
+                background: #a8a8a8;
+            }
+        }
+    }
+
+    .headerInfo {
+        background: #f8f9fa;
+        padding: 15px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+
+        .subTitle {
+            font-size: 20px;
+            margin-bottom: 10px;
+            text-align: center;
+            color: #1a3353;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        span {
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .redText {
+            color: #dc3545;
+            font-weight: bold;
+        }
+    }
+
+    .tabs {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 15px;
+        position: sticky; // ট্যাবগুলো স্ক্রল করার সময় উপরে আটকে থাকবে
+        top: 0;
+        background: #fff;
+        padding: 5px 0;
+        z-index: 10;
+
+        button {
+            padding: 8px 20px;
+            border: 1px solid #ddd;
+            background: #fff;
+            cursor: pointer;
+            font-weight: 600;
+
+            &.active {
+                background: #1a3353;
+                color: #fff;
+                border-color: #1a3353;
+            }
+
+            &:first-child {
+                border-radius: 4px 0 0 4px;
+            }
+
+            &:last-child {
+                border-radius: 0 4px 4px 0;
+            }
+        }
+    }
+
+    .table,
+    .reviewTable {
+        width: 100%;
+        border-collapse: collapse;
+
+        th {
+            position: sticky;
+            top: 0;
+            background: #fafafa;
+            padding: 12px;
+            text-align: left;
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            z-index: 5;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #f0f0f0;
+            font-size: 14px;
+        }
+    }
+
+    .counter {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        button {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            background: #1a3353;
+            color: #fff;
+
+            &:first-child {
+                background: #ff4d4f;
+            }
+        }
+
+        span {
+            font-weight: bold;
+            min-width: 15px;
+            text-align: center;
+        }
+    }
+
+    // রিভিউ কার্ডের ফুটার ফিক্সড রাখা হয়েছে
+    .summaryFooter {
+        flex-shrink: 0;
+        padding-top: 20px;
+        border-top: 2px solid #f0f0f0;
+        margin-top: 10px;
+
+        .totalRow {
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #1a3353;
+        }
+
+        .buyButton {
+            width: 100%;
+            padding: 12px;
+            background: #1a3353;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 15px;
+            transition: transform 0.1s;
+
+            &:active {
+                transform: scale(0.98);
+            }
+        }
+
+        .promoBox {
+            display: flex;
+            gap: 8px;
+
+            input {
+                flex: 1;
+                padding: 8px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            button {
+                padding: 0 15px;
+                background: #eee;
+                border: none;
+                border-radius: 4px;
+                color: #999;
+            }
+        }
+    }
+}
+
+@media (max-width: 1100px) {
+    .container {
+        height: auto;
+        overflow: visible;
+        flex-direction: column;
+    }
+
+    .panelWrapper {
+        height: 600px;
+    }
+
+    // ছোট স্ক্রিনে ফিক্সড হাইট
+}

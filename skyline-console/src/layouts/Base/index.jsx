@@ -249,7 +249,7 @@ export class BaseLayout extends Component {
 
     // পেমেন্ট এক্সপায়ার থাকলে billing ছাড়া অন্য সব পাথে বাধা দিন
     if (paymentExpired && !pathname.startsWith('/billing') && pathname !== '/login') {
-      window.location.href = '/billing/paybill';
+      window.location.href = '/billing/buypackages';
       return;
     }
 
